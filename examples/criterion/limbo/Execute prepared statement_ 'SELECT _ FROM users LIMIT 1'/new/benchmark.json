@@ -1,0 +1,1 @@
+{"group_id":"limbo","function_id":"Execute prepared statement: 'SELECT * FROM users LIMIT 1'","value_str":null,"throughput":{"Elements":1},"full_id":"limbo/Execute prepared statement: 'SELECT * FROM users LIMIT 1'","directory_name":"limbo/Execute prepared statement_ 'SELECT _ FROM users LIMIT 1'","title":"limbo/Execute prepared statement: 'SELECT * FROM users LIMIT 1'"}

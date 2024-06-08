@@ -1,0 +1,1 @@
+{"group_id":"rusqlite","function_id":"Execute prepared statement: 'SELECT 1'","value_str":null,"throughput":{"Elements":1},"full_id":"rusqlite/Execute prepared statement: 'SELECT 1'","directory_name":"rusqlite/Execute prepared statement_ 'SELECT 1'","title":"rusqlite/Execute prepared statement: 'SELECT 1'"}
