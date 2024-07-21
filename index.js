@@ -17,13 +17,36 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
 
-  fs.readFile("examples/criterion/limbo/Execute\ prepared\ statement_\ \'SELECT\ 1\'/new/estimates.json", "utf8", (err, data) => {
-    if (err) {
-      console.error(err);
-      return;
+  // Find all estimates.json files in any 'new' subdirectories of the 'examples' directory
+  const estimates = [];
+  const walkSync = (dir, filelist = []) => {
+    fs.readdirSync(dir).forEach((file) => {
+      const path = require("path");
+      file.isDirectory()
+        ? (filelist = walkSync(path.join(dir, file), filelist))
+        : filelist.push(path.join(dir, file));
+    });
+    return filelist;
+  };
+  const files = walkSync("examples");
+  files.forEach((file) => {
+    if (file.includes("estimates.json")) {
+      estimates.push(file);
     }
-    console.log(data);
   });
+  console.log(estimates);
+
+  fs.readFile(
+    "examples/criterion/limbo/Execute prepared statement_ 'SELECT 1'/new/estimates.json",
+    "utf8",
+    (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(data);
+    }
+  );
 } catch (error) {
   core.setFailed(error.message);
 }
