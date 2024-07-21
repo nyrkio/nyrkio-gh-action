@@ -22,7 +22,7 @@ try {
   const walkSync = (dir, filelist = []) => {
     fs.readdirSync(dir).forEach((file) => {
       const path = require("path");
-      file.isDirectory()
+      file.isDirectory
         ? (filelist = walkSync(path.join(dir, file), filelist))
         : filelist.push(path.join(dir, file));
     });
