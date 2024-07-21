@@ -16,6 +16,14 @@ try {
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
+
+  fs.readFile("examples/criterion/limbo/Execute\ prepared\ statement_\ \'SELECT\ 1\'/new/estimates.json", "utf8", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+  });
 } catch (error) {
   core.setFailed(error.message);
 }
